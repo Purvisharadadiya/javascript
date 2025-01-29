@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>varible declertion</title>
+</head>
+
+<body>
+
+    <h1 align="center">varible declertion</h1>
+    <hr>
+    <button type="button" onclick="document.getElementById('demo').innerHTML = Date()">date time</button>
+
+    <p id="demo"></p>
+    <h2>ES5</h2>
+    <ul>
+        <li>
+            <h3>
+                var varible declertion
+            </h3>
+        </li>
+
+        <li>var a;</li>
+        <li>var a=10</li>
+    </ul>
+    <h2>ES6</h2>
+    <ul>
+        <li>
+            <h3>
+                let varible declertion
+            </h3>
+        </li>
+        <li>let b;</li>
+        <li>let b=20</li>
+    </ul>
+
+    <ul>
+        <li>
+            <h3>
+                const varible declertion
+            </h3>
+        </li>
+        <li>const PI;</li>
+        <li>const = 3.14</li>
+        <h3>NOTE:-</h3>
+        <ul>
+            <p>const varible declertion sathe j value asain karvani</p>
+        </ul>
+
+    </ul>
+</body>
+<script>
+
+    //ES5 using sum
+
+    let a = parseInt(prompt("Enter any first number:"));
+    let b = parseInt(prompt("Enter any second number:"));
+    document.write("Sum is :-" + (a + b));
+    console.log("sum is:-" + (a + b));
+
+    //ES6 using sum  
+
+    let num1 = parseInt(prompt("Enter any first number:"))
+    let num2 = parseInt(prompt("Enter any second number:"))
+
+    console.log(`Sum is:- ${num1 + num2}`)
+    document.write(`sumis:-${num1 + num2}`)
+
+
+    let sum1 = parseInt(prompt("Enter any first number:"))
+    let sum2 = parseInt(prompt("Enter any second number:"))
+
+    console.log(`Sum is:- ${sum1 - sum2}`)
+    document.write(`sum is:-${sum1 - sum2}`)
+
+
+
+</script>
+
+</html>
