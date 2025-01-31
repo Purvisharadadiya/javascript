@@ -14,16 +14,17 @@
 </body>
 <script>
 
-    {
-        let a = 5, b = 10;
-        document.write(`Before Swap: a = ${a}, b = ${b} <br>`);
+let a = parseInt(prompt("Enter the first number a:"));
+let b = parseInt(prompt("Enter the second number b:"));
 
-        let temp = a;
-         a = b;
-        b = temp;
+document.write(`Before Swap: a = ${a}, b = ${b} <br>`);
 
-        document.write(`After Swap: a = ${a}, b = ${b}`);
-    }
+// Swap logic
+let temp = a;
+a = b;
+b = temp;
+
+document.write(`After Swap: a = ${a}, b = ${b}`);
 </script>
 
 </html>
