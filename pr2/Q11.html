@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+      <h1 align="center">calculetor</h1>
+      <hr>
+</body>
+<script>
+    let a = parseInt(prompt("Enter first number (a):"));
+    let b = parseInt(prompt("Enter second number (b):"));
+    let operator = prompt("Select operation (+, -, *, /):");
+
+    let result;
+
+    switch (operator) {
+        case "+":
+            result = a + b;
+            document.write(`Ans => ${result} `);
+            break;
+        case "-":
+            result = a - b;
+            document.write(`Ans => " ${result} `);
+            break;
+        case "*":
+            result = a * b;
+            document.write(`Ans => " ${result} `);
+            break;
+        case "/":
+            if (b !== 0) {
+                result = a / b;
+                document.write(`Ans => " ${result} `);
+            } else {
+                document.write("Error:");
+            }
+            break;
+        default:
+            console.log("Invalid operator. Please select +, -, *, or /.");
+    }
+
+</script>
+
+</html>

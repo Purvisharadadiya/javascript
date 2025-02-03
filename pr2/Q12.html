@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center">calculetor</h1>
+</body>
+<script>
+    let a = parseInt(prompt("Enter first number (a):"));
+let b = parseInt(prompt("Enter second number (b):"));
+let operator = prompt("Select operation (+, -, *, /):");
+
+  let result;
+
+if (operator == "+") {
+    result = a + b;
+    document.write(`Ans = > ${result} `);
+} else if (operator == "-") {
+    result = a - b;
+    document.write(`Ans = > ${result} `);
+} else if (operator == "*") {
+    result = a * b;
+    document.write(`Ans = > ${result} `);
+} else if (operator == "/") {
+    if (b !== 0) {
+        result = a / b;
+        document.write(`Ans = > ${result} `);
+    } else {
+        document.write("Error: Division by zero is not allowed.");
+    }
+} else {
+    document.write("Invalid operator. Please select +, -, *, or /.");
+}
+
+</script>
+</html>

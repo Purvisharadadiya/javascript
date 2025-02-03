@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Sudent Result</h2>
+</body>
+<script>
+    let physics = parseInt(prompt("Enter marks for Physics(marks between 0 and 100.):"));
+    let chemistry = parseInt(prompt("Enter marks for Chemistry(marks between 0 and 100.):"));
+    let biology = parseInt(prompt("Enter marks for Biology(marks between 0 and 100.):"));
+    let mathes = parseInt(prompt("Enter marks for Mathematics(marks between 0 and 100.):"));
+    let computer = parseInt(prompt("Enter marks for Computer(marks between 0 and 100.):"));
+
+
+    
+
+        let average = (mathes + chemistry + physics + biology + computer) / 5;
+
+
+        let grade;
+        if (average >= 90) {
+            grade = "A";
+        } else if (average >= 80) {
+            grade = "B";
+        } else if (average >= 70) {
+            grade = "C";
+        } else if (average >= 60) {
+            grade = "D";
+        } else if (average >= 50) {
+            grade = "E";
+        } else if (average >= 40) {
+            grade = "F";
+        } else if (average >= 30) {
+            grade = "G";
+        } else 
+            grade = "Fail";
+
+
+        // Display result
+        document.write(`Average mark: ${average.toFixed(2)}`);
+        document.write(`Grade: ${grade}`);
+    
+
+
+
+
+</script>
+
+</html>

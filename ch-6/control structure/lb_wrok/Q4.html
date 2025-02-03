@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // Prompt user for marks
+    let maths = parseFloat(prompt("Enter maths marks (out of 100):"));
+    let english = parseFloat(prompt("Enter English marks (out of 100):"));
+    let science = parseFloat(prompt("Enter Science marks (out of 100):"));
+
+    // Check if inputs are valid
+    if ( maths < 0 || maths > 100 || english < 0 || english > 100 || science < 0 || science > 100) {
+        document.write("Please enter valid marks between 0 and 100.");
+    } else {
+        // Calculate and display average
+        let average = (maths + english + science) / 3;
+        document.write(`Average mark: ${average.toFixed(2)}`);
+    }
+
+</script>
+
+</html>

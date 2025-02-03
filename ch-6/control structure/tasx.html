@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    let maths =   parseFloat(prompt("Enter maths marks (out of 100):"));
+    let english = parseFloat(prompt("Enter English marks (out of 100):"));
+    let science = parseFloat(prompt("Enter Science marks (out of 100):"));
+
+    if (maths < 0 || maths > 100 || english < 0 || english > 100 || science < 0 || science > 100) {
+        document.write("Please enter valid marks between 0 and 100.");
+    } else {
+
+        let average = (maths + english + science) / 3;
+
+        
+        let grade;
+        if (average >= 90) {
+            grade = "A";
+        } else if (average >= 80) {
+            grade = "B";
+        } else if (average >= 70) {
+            grade = "C";
+        } else if (average >= 60) {
+            grade = "D";
+        } else if (average >= 50) {
+            grade = "E";
+        } else if (average >= 40) {
+            grade = "F";
+        } else if (average >= 30) {
+            grade = "G";
+        } else {
+            grade = "Fail";
+        }
+
+
+
+        // Display result
+        document.write(`Average mark: ${average.toFixed(2)}`);
+        document.write(`Grade: ${grade}`);
+    }
+
+</script>
+
+</html>
