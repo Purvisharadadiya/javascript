@@ -14,24 +14,28 @@
 
 <script>
 
-    let firstLetter = prompt("Enter the first letter of a day (e.g., M for Monday):")
+    let firstLetter = prompt("Enter the first letter of a day (M for Monday):")
     let weekDay 
 
     if (firstLetter == "M") {
         weekDay = "Monday";
     } else if (firstLetter == "T") {
         weekDay = "Tuesday";
+    } else if (firstLetter == "H") {
+        weekDay = "thursday";    
     } else if (firstLetter == "W") {
         weekDay = "Wednesday";
     } else if (firstLetter == "F") {
         weekDay = "Friday";
     } else if (firstLetter == "S") {
         weekDay = "Saturday";
+    } else if (firstLetter == "A") {
+        weekDay = "Saturday";
     } else {
         weekDay = "Invalid input";
     }
 
-    document.write("Weekday: " + weekDay);
+    document.write(`Weekday: ${weekDay}`);
 
 
 </script>
