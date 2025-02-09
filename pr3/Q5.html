@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 align="" center> usig for loop to Even number</h1>
+    <hr>
+</body>
+
+<script>
+    let n = parseInt(prompt("Enter any number:"))
+
+    document.write("Numbers from 1 to  n:<br>");
+    for (let i = 1; i <= n; i++) {
+        document.write(i + " ")
+    }
+    document.write("<br><br>Even numbers from 1 to  n :<br>");
+
+
+    for (let i = 1; i <= n; i++) {
+
+        if(i % 2==0)
+        document.write(i + " ")
+    }
+
+</script>
+
+</html>

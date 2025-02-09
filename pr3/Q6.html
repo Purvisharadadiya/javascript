@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center"> usig do while loop 1 to n sum number</h1>
+    <hr>
+</body>
+<script>
+let n = parseInt(prompt("Enter a number:")); // User input for n
+let i = 1;
+let sum = 0;
+
+document.write("Numbers from 1 to n :<br>");
+
+do {
+    document.write(i + " ");
+    sum += i;
+    i++;
+} while (i <= n);
+
+document.write("<br><br>Sum of numbers from 1 to n is: " + sum);
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center"> prime number using while loop</h1>
+</body>
+
+
+<script>
+
+let n = parseInt(prompt("Enter the number of in the Fibonacci series:")); 
+let a = 0, b = 1, c;
+
+document.write("Fibonacci Series: <br>");
+
+if (n <= 0) {
+    document.write("Please enter a positive integer.");
+} else {
+    document.write(a + " " + b + " "); 
+    for (let i = 3; i <= n; i++) { 
+        c = a + b;
+        document.write(c + " "); 
+        a = b;
+        b = c;
+    }
+}
+
+</script>
+
+</html>

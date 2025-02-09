@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center"> factorial number using while loop</h1>
+</body>
+
+
+<script>
+let num = parseInt(prompt("Enter a number:")); 
+let factorial = 1;
+let i = num;
+
+document.write("<h2>Factorial of :</h2>");
+
+while (i > 0) {
+    factorial *=i;
+    i--;
+}
+
+document.write(`${factorial}`);
+
+</script>
+</html>
