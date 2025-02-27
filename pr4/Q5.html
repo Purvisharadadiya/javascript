@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center">using simpl function😊😊</h1>
+    <hr>
+</body>
+
+<script>
+
+let a = parseFloat(prompt("Enter first number:"));
+let b = parseFloat(prompt("Enter second number:"));
+
+function add(a, b) {
+    document.write(`Addition: ${a} + ${b} = ${a + b}<br>`);
+}
+
+function subtract(a, b) {
+    document.write(`Subtraction: ${a} - ${b} = ${a - b}<br>`);
+}
+
+function multiply(a, b) {
+    document.write(`Multiplication: ${a} *${b} = ${a * b}<br>`);
+}
+
+function divide(a, b) {
+    if (b !== 0) {
+        console.log(`Division: ${a} / ${b} = ${a / b}<br>`);
+    } else {
+        console.log("Division by zero is not allowed.");
+    }
+}
+
+add(a,b);
+subtract(a,b);
+multiply(a,b);
+divide(a,b);
+
+</script>
+</html>

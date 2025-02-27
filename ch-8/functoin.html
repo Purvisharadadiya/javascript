@@ -11,11 +11,20 @@
 </body>
 
 <script>
-
+      
+      
+     
     printf();
     let x=parseInt(prompt("Enter any number:"))
     let y=parseInt(prompt("Enter any number:"))
     sum(x,y);
+    document.write("<br>")
+    let ans= mul(x,y);
+     document.write(`mul=${ans}`)
+
+     let c= mul(x,y)
+     document.write(`mul${ans}`)
+    
 
     //function
         function printf(){
@@ -31,5 +40,22 @@
             document.write(`${a}+${b}=${a+b}`)
 
         }
+
+
+        function mul(a,b){
+
+            return a * b;
+        }
+
+
+       
+        
+
+
+
+
+      
+
+
 </script>
 </html>

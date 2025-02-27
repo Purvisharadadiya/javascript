@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center">using all function😰😰</h1>
+    <hr>
+</body>
+
+<script>
+    // TNRN 
+function findTNRN() {
+    let a = parseFloat(prompt("Enter first number:"));
+    let b = parseFloat(prompt("Enter second number:"));
+    let c = parseFloat(prompt("Enter third number:"));
+    if (a > b) {
+        if (a > c) {
+            document.write(a + " is the greatest number.<br>");
+        } else {
+            document.write(c + " is the greatest number.<br>");
+        }
+    } else {
+        if (b > c) {
+            document.write(b + " is the greatest number.<br>");
+        } else {
+            document.write(c + " is the greatest number.<br>");
+        }
+    }
+}
+
+// TSRN 
+function findTSRN(a, b, c) {
+    if (a > b) {
+        if (a > c) {
+            document.write(a + " is the greatest number.<br>");
+        } else {
+            document.write(c + " is the greatest number.<br>");
+        }
+    } else {
+        if (b > c) {
+            document.write(b + " is the greatest number.<br>");
+        } else {
+            document.write(c + " is the greatest number.<br>");
+        }
+    }
+}
+
+// TNRS 
+function findTNRS() {
+    let a = parseFloat(prompt("Enter first number:"));
+    let b = parseFloat(prompt("Enter second number:"));
+    let c = parseFloat(prompt("Enter third number:"));
+    if (a > b) {
+        if (a > c) {
+            return a + " is the greatest number.";
+        } else {
+            return c + " is the greatest number.";
+        }
+    } else {
+        if (b > c) {
+            return b + " is the greatest number.";
+        } else {
+            return c + " is the greatest number.";
+        }
+    }
+}
+
+// TSTS 
+function findTSTS(a, b, c) {
+    if (a > b) {
+        if (a > c) {
+            return a + " is the greatest number.";
+        } else {
+            return c + " is the greatest number.";
+        }
+    } else {
+        if (b > c) {
+            return b + " is the greatest number.";
+        } else {
+            return c + " is the greatest number.";
+        }
+    }
+}
+
+
+findTNRN();
+let num1 = parseFloat(prompt("Enter first number:"));
+let num2 = parseFloat(prompt("Enter second number:"));
+let num3 = parseFloat(prompt("Enter third number:"));
+findTSRN(num1, num2, num3);
+document.write(findTNRS() + "<br>");
+document.write(findTSTS(num1, num2, num3) + "<br>");
+
+   
+</script>

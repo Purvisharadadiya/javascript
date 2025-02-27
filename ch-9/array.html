@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array</title>
+</head>
+
+<body>
+    <h1 align="center">array </h1>
+    <hr>
+</body>
+
+<script>
+    //   let a=[];
+
+    //   a[0]=10;
+    //   a[1]=10;
+    //   a[2]=10;
+    //   a[3]=10;
+
+
+    //   let n= a.length;
+
+    //   for(let i=0;i<n;i++){
+    //     document.write(`array:-${a[i]} <br>`)
+    //   }
+
+
+
+    let n = parseInt(prompt("Enter any array size:"))
+    let a = []
+
+    for (let i = 0; i < n; i++) {
+        a[i] = parseInt(prompt(`Enter any element:${i}`))
+    }
+
+
+
+    for (let i = 0; i < n; i++) {
+
+        if (n > 0)
+            document.write(`element is${a[i]}<br>`)
+
+    }
+
+
+    // document.write("<br>")
+
+    // let sum = 0;
+    // for (let i = 0; i < n; i++) {
+
+    //     sum += a[i]
+    // }
+
+    // document.write(`sum is${sum}<br>`)
+
+
+
+    //Ascending order//
+    let n = parseInt(prompt("Enter the array size:"));
+    let a = [];
+
+
+    for (let i = 0; i < n; i++) {
+        a[i] = parseInt(prompt(`Enter element at index ${i}:`));
+    }
+
+
+    for (let i = 0; i < n; i++) {
+
+        document.write(`elements:${a[i]} <br>`)
+    }
+
+
+
+    for (let i = 0; i < n - 1; i++) {
+        for (let j = i + 1; j < n; j++) {
+            if (a[i] > a[j]) {
+
+                let temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
+    }
+
+
+    document.write("Sorted elements in ascending order:<br>");
+    for (let i = 0; i < n; i++) {
+        document.write(`${a[i]}<br>`);
+    }
+
+
+    // //discending order//
+    // let n = parseInt(prompt("Enter the array size:"));
+    // let a = [];
+
+
+    // for (let i = 0; i < n; i++) {
+    //     a[i] = parseInt(prompt(`Enter element at index ${i}:`));
+    // }
+
+
+    // for (let i = 0; i < n; i++) {
+
+    //     document.write(`elements:${a[i]} <br>`)
+    // }
+
+
+
+    // for (let i = 0; i < n - 1; i++) {
+    //     for (let j = i + 1; j < n; j++) {
+    //         if (a[i] < a[j]) {
+
+    //             let temp = a[i];
+    //             a[i] = a[j];
+    //             a[j] = temp;
+    //         }
+    //     }
+    // }
+
+
+
+    // //diagonal elements//
+    // let size = parseInt(prompt("Enter any array size:"))
+
+    // let arra = []
+    // let i=[]
+
+    // for (let i = 0; i < size; i++) {
+    //     for (let j = 0; j < size; j++) {
+    //         arra[i][j] = parseInt(prompt(`Enter any elements:${arra[i]} ${arra[j]}`))
+    //     }
+
+    // }
+
+    // for (let i = 0; i < size; i++) {
+    //     for (let j = 0; j < size; j++) {
+
+    //         document.write(`diagonal:${arra[i][i]}`)
+    //     }
+    // }
+
+ //anit diogonal elements//
+//  let size = parseInt(prompt("Enter the size of the square matrix:"));
+// let a = [];
+
+// for (let i = 0; i < size; i++) {
+//     a[i] = [];//Initialize each row
+//     for (let j = 0; j < size; j++) {
+//         a[i][j] = parseInt(prompt(`Enter element at [${i}][${j}]:`));
+//     }
+// }
+
+
+// document.write("<h3>Anti-Diagonal Elements:</h3>");
+// for (let i = 0; i < size; i++) {
+//     document.write(`${a[i][size - i - 1]} `); 
+// }
+
+
+// let size = parseInt(prompt("Enter the size of the square matrix:"));
+// let a = [];
+
+// for (let i = 0; i < size; i++) {
+//     a[i] = [];
+//     for (let j = 0; j < size; j++) {
+//         a[i][j] = parseInt(prompt(`Enter element at [${i}][${j}]:`));
+//     }
+// }
+
+// // Display cross-boundary elements
+// document.write("<h3>Cross Boundary Elements:</h3>");
+// for (let i = 0; i < size; i++) {
+//     for (let j = 0; j < size; j++) {
+//         if (i == j || i + j == size - 1) {
+//             document.write(`${a[i][j]} `);
+//         } else {
+//             document.write(`_ `); 
+//         }
+//     }
+//     document.write("<br>");
+// }
+
+
+// for (let i = 0; i < size; i++) {
+//     a[i] = [];
+//     for (let j = 0; j < size; j++) {
+//         a[i][j] = parseInt(prompt(`Enter element at [${i}][${j}]:`));
+//     }
+// }
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 align="center">using simpl function😊😊</h1>
+    <hr>
+</body>
+
+<script>
+    let a = parseInt(prompt("Enter any number:"))
+    let b = parseInt(prompt("Enter any number:"))
+    let c = parseInt(prompt("Enter any number:"))
+    let d = parseInt(prompt("Enter any number:"))
+
+    function check() {
+
+
+
+        if (a > b) {
+            if (a > c) {
+                if (a > d) {
+                    document.write(`${a} is greter  number`)
+                } else {
+                    document.write(`${b} is greter  number`)
+
+                }
+            } else {
+                if (c > d) {
+                    document.write(`${c} is greter  number`)
+                } else {
+                    document.write(`${d} is greter  number`)
+                }
+            }
+        } else {
+            if (b > c) {
+                if (b > d) {
+                    document.write(`${b} is greter  number`)
+                } else {
+                    document.write(`${d} is greter  number`)
+                }
+            } else {
+                if (c > d) {
+                    document.write(`${c} is greter  number`)
+                } else {
+                    document.write(`${d} is greter  number`)
+                }
+            }
+        }
+    }
+    
+    check()
+
+</script>
+
+</html>

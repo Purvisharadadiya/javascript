@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center">using all function😰😰</h1>
+    <hr>
+</body>
+<script>
+
+
+
+// 1 TNTN (Takes Nothing, Returns Nothing)
+function swapTNTN() {
+    let a = parseInt(prompt("Enter first number:"));
+    let b = parseInt(prompt("Enter second number:"));
+
+    document.write(`<p>Before Swap (TNTN): a = ${a}, b = ${b}</p>`);
+
+    let temp = a;
+    a = b;
+    b = temp;
+
+    document.write(`<p>After Swap (TNTN): a = ${a}, b = ${b}</p><hr>`);
+}
+
+// 2️ TSRN 
+function swapTSRN(a, b) {
+    document.write(`<p>Before Swap (TSRN): a = ${a}, b = ${b}</p>`);
+
+    let temp = a;
+    a = b;
+    b = temp;
+
+    document.write(`<p>After Swap (TSRN): a = ${a}, b = ${b}</p><hr>`);
+}
+
+// 3️ TNRS 
+function swapTNRS() {
+    let a = parseInt(prompt("Enter first number:"));
+    let b = parseInt(prompt("Enter second number:"));
+
+    document.write(`<p>Before Swap (TNRS): a = ${a}, b = ${b}</p>`);
+
+    let temp = a;
+    a = b;
+    b = temp;
+}
+    return [a, b]; 
+// 4️ TSRS 
+function swapTSRS(a, b) {
+    document.write(`<p>Before Swap (TSRS): a = ${a}, b = ${b}</p>`);
+    return [b, a]; 
+}
+
+
+
+
+swapTNTN();
+
+
+let num1 = parseInt(prompt("Enter first number:"));
+let num2 = parseInt(prompt("Enter second number:"));
+
+
+swapTSRN(num1, num2);
+
+
+let [newA, newB] = swapTNRS();
+document.write(`<p>After Swap (TNRS): a = ${newA}, b = ${newB}</p><hr>`);
+
+
+let [swappedA, swappedB] = swapTSRS(num1, num2);
+document.write(`<p>After Swap (TSRS): a = ${swappedA}, b = ${swappedB}</p><hr>`);
+
+</script>
