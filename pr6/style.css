@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+
+    select {
+        width: 100%;
+        padding: 8px;
+        font-weight: bold;
+        border: 1px solid rgba(0, 0, 255, 0.258);
+        background-color: white;
+        transition: all 0.3s ease-in-out;
+    }
+
+    select:hover,
+    select:focus {
+        background-color: #e0e0e0;
+        border-color: blue;
+        cursor: pointer;
+    }
+
+    option {
+        background-color: #f8f9fa;
+        color: black;
+        padding: 5px;
+    }
+
+    option:hover {
+        background-color: #d6d6d6;
+    }
+
+

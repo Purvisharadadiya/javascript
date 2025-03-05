@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Data</title>
+</head>
+<body>
+
+    <h1 align="center">Array of Objects</h1>
+
+    <!-- Full Student Table -->
+    <h2 align="center">All Students</h2>
+    <table border="1" align="center" cellpadding="10" cellspacing="3">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Course</th>
+            </tr>
+        </thead>
+        <tbody id="allStudents"></tbody>
+    </table>
+
+    <!-- 20+ Age Students Table -->
+    <h2 align="center">Students Aged 20+</h2>
+    <table border="1" align="center" cellpadding="10" cellspacing="3">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Course</th>
+            </tr>
+        </thead>
+        <tbody id="students20Plus"></tbody>
+    </table>
+
+</body>
+
+<script>
+    let students = [
+        { id: 1, name: "Purvisha", age: 20, course: "Full Stack Development" },
+        { id: 2, name: "Purva", age: 22, course: "Full Stack Development" },
+        { id: 3, name: "Purvish", age: 21, course: "Full Stack Development" },
+        { id: 4, name: "Rahul", age: 23, course: "Data Science" },
+        { id: 5, name: "Aisha", age: 24, course: "Machine Learning" },
+        { id: 6, name: "John", age: 19, course: "Cyber Security" },
+        { id: 7, name: "Samantha", age: 25, course: "UI/UX Design" },
+        { id: 8, name: "Arjun", age: 22, course: "Cloud Computing" },
+        { id: 9, name: "Neha", age: 21, course: "Artificial Intelligence" },
+        { id: 10, name: "David", age: 26, course: "Software Engineering" }
+    ];
+
+    // Populate all students table
+    let allStudentsTable = "";
+    students.map((val) => {
+        allStudentsTable += `
+            <tr>
+                <td>${val.id}</td>
+                <td>${val.name}</td>
+                <td>${val.age}</td>
+                <td>${val.course}</td>
+            </tr>
+        `;
+    });
+
+    document.getElementById('allStudents').innerHTML = allStudentsTable;
+
+    
+    let students20PlusTable = "";
+    let students20Plus = students.filter(student => student.age > 20);
+    
+    students20Plus.forEach((val) => {
+        students20PlusTable += `
+            <tr>
+                <td>${val.id}</td>
+                <td>${val.name}</td>
+                <td>${val.age}</td>
+                <td>${val.course}</td>
+            </tr>
+        `
+    });
+
+    document.getElementById('students20Plus').innerHTML = students20PlusTable;
+</script>
+
+</html>
