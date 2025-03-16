@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+   
+    <h1 align="center">*** Student Person Details***</h1>
+
+</body>
+
+
+<script>
+    class Person {
+        constructor(Name, Age, Country) {
+
+            this.Name = Name;
+            this.Age = Age;
+            this.Country = Country;
+        }
+
+        display() {
+            
+            document.write(`
+                    <h4 style="text-align:center;"> 
+                        Name: ${this.Name} <br> 
+                        Age: ${this.Age} <br> 
+                        Country: ${this.Country} 
+                    </h4>
+                `);
+               
+        }
+    }
+
+    let p1 = new Person(" xyz", "25", "USA")
+    let p2 = new Person(" pqr", "20", " IND")
+    
+
+
+    let data = [p1, p2]
+
+    data.map(val => {
+        val.display();
+
+
+    })
+
+
+</script>
+
+</html>

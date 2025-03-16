@@ -1,64 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-   
+    <title>Document</title>
 </head>
 
-<h1 align="center"> add user  </h1>
-<hr>
-
-<table border="1" align="center">
-    <thead>
-        <tr>
-            <td>name</td><br>
-            <td><input type="text" id="name"></td>
-        </tr>
-        <tr>
-            <td>phone</td><br>
-            <td> <input type="text" id="id"></td>
-        </tr>
-
-        <tr>
-            <td></td><br>
-            <td align="center"><button onclick="adduser()">sumite</button></td>
-        </tr>
-    </thead>
-    <tbody id="user">
-
-    </tbody>
-</table>
-<br>
-    <table border="1" align="center">
-        <thead>
-        <tr>
-            <td>name</td>
-            <td> id</td>
-            <td>phone</td>
-        </tr>
-    </table>
-</thead>
-
-<script>
-    let adduser=()=>{
-        let name=document.getElementById('name').value;
-        console.log(name)
-        let id=document.getElementById('id').value;
-        console.log(id)
-        alert("ok")
-    }
-
-   let array=[];
-   let add=()=>{
-
-       ans=document.getElementById('usre').value
-       console.log(usre)
-
-
-
-   }
-    
-</script>
 <body>
+    <div align="center">
+        <h2>Add User</h2>
+        <table border="1">
+            <tr>
+                <td>Name :- </td>
+                <td><input type="text" id="name"></td>
+            </tr>
+            <tr>
+                <td>Phone :- </td>
+                <td><input type="text" id="phone"></td>
+            </tr>
+            <tr>
+                <td>Gender :- </td>
+                <td>
+                    <input type="radio" name="gender" value="Male"> Male
+                    <input type="radio" name="gender" value="Female"> Female
+                </td>
+            </tr>
+            <tr>
+                <td>Hobbies :- </td>
+                <td>
+                    <input type="checkbox" class="hobby" value="Reading"> Reading
+                    <input type="checkbox" class="hobby" value="Traveling"> Traveling
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button id="addUser">Submit</button>
+                </td>
+            </tr>
+        </table>
+
+        <h2>View User</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Gender</th>
+                    <th>Hobbies</th>
+                </tr>
+            </thead>
+            <tbody id="usersrecord"></tbody>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+        let users = [];
+
+        const viewUser = () => {
+            let tbl = "";
+            users.forEach((val) => {
+                tbl += `
+                    <tr>
+                        <td>${val.grid}</td>
+                        <td>${val.name}</td>
+                        <td>${val.phone}</td>
+                        <td>${val.gender}</td>
+                        <td>${val.hobbies}</td>
+                    </tr>
+                `;
+            });
+            document.getElementById('usersrecord').innerHTML = tbl;
+        };
+
+        let button = document.getElementById('addUser');
+        button.addEventListener('click', () => {
+            let name = document.getElementById('name').value;
+            let phone = document.getElementById('phone').value;
+            let gender = document.querySelector('input[name="gender"]:checked').value;
+            
+
+            let hobbies = [];
+            document.querySelectorAll('.hobby:checked').forEach((hobby) => {
+                hobbies.push(hobby.value);
+            });
+
+          
+
+            let obj = {
+                grid: Math.floor(Math.random() * 1000000),
+                name: name,
+                phone: phone,
+                gender: gender,
+                hobbies: hobbies.join(", "),
+            };
+
+            users.push(obj);
+            alert("User successfully created");
+
+            // Clear input fields
+            document.getElementById('name').value = "";
+            document.getElementById('phone').value = "";
+            document.querySelectorAll('input[name="gender"]').forEach((radio) => (radio.checked = false));
+            document.querySelectorAll('.hobby').forEach((checkbox) => (checkbox.checked = false));
+
+            viewUser();
+        });
+    </script>
+</body>
+
+</html>

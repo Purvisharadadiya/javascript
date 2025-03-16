@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+
+<script>
+
+
+
+    class detel {
+        constructor() {
+            this.id;
+            this.name;
+            this.roll;
+            this.college = " sutex"
+
+        }
+
+
+    }
+    class Techer extends detel {
+
+        setTecher() {
+
+            this.id = parseInt(prompt("Enter Techer id:"));
+
+        }
+
+
+        getTecher() {
+            document.write(`id is Techer:${this.id}`)
+            document.write(`college name:-${this.college}`)
+        }
+
+    }
+
+    class student extends Techer {
+
+        setStudent() {
+
+            this.id = parseInt(prompt("Enter student id:"))
+
+        }
+
+
+        getStudent() {
+            document.write(`id is student:${this.id}`)
+            document.write(`college name:-${this.college}`)
+        }
+
+    }
+
+
+
+    let s1 = new student();
+
+    let data = [s1];
+    data.forEach((val) => {
+        val.setTecher();
+        val.getTecher();
+        val.setStudent();
+        val.getStudent();
+
+    })
+
+
+
+</script>
+
+</html>

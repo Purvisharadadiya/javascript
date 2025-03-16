@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center">constructon</h1>
+    <hr>
+
+</body>
+
+<script>
+
+    class car{
+        constructor(cmpname, model){
+            this.cmpname=cmpname
+            this.model=model
+            
+        }
+
+        detel(){
+            document.write(`<h1>is cmpname :-${this.cmpname}<br>is model:- ${this.model}</h1>`)
+        }
+    }
+
+    let c = new car("totay","abs");
+    let c1 = new car("red","abd");
+    let c2 = new car("pick","abe");
+   
+   
+    //c.detel();
+
+    let a=[c,c1,c2];
+
+    //console.log(a);
+
+    // a.forEach((val)=>{
+    //     console.log(val.detel())
+    // })
+
+
+    for(i=0;i<a.length;i++){
+        a[i].detel();
+    }
+    
+    
+
+
+     
+
+
+
+
+
+    
+</script>
+</html>

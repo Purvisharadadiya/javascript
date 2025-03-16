@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+
+    class A {
+        constructor(name) {
+            this.a = 10
+            this.b = 20
+            this.c = 12
+            this.name = name;
+
+        }
+        result() {
+            console.log(this.a + this.b)
+        }
+    }
+
+    class B extends A {
+        constructor(name) {
+            super(name);
+
+            console.log(this.c)
+            console.log(name)
+
+        }
+    }
+
+    let b = new B("purvisha");
+    b.result();
+    
+</script>
+
+</html>

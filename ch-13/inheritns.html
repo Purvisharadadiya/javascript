@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 align="center">inheritns</h1>
+    <hr>
+
+</body>
+
+<script>
+
+  class a{
+
+     constructor(){
+        this.a=10;
+        this.b=20;
+     }
+
+       
+  }
+
+  class b extends a{
+    sum(){
+
+       return this.a + this.b;
+    }
+  }
+
+    class c extends b{
+
+        result(){
+            
+            document.write(`sum:-${this.sum()}`)
+        }
+    }
+
+   let obj = new c;
+   obj.result()
+</script>
+</html>

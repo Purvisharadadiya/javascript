@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div align="center">
+        <h2>Form validation</h2>
+        <br>
+        <table border="1">
+
+            <tr>
+                <td>Name</td>
+                <td>
+                    <input type="name" id="name">
+                </td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" id="email"></td>
+            </tr>
+            <tr>
+                <td>password</td>
+                <td><input type="password" id="password"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input onclick="formValidation()" type="button" value="submit"></td>
+            </tr>
+        </table>
+    </div>
+    <script type="text/javascript">
+        function validatePassword() {
+            let passworderror = document.getElementById('password');
+            var p = document.getElementById('password').value;
+            if (p.length < 8) {
+                passworderror.value = "Your password must be at least 8 characters"
+                passworderror.style.color = "red";
+            }
+            if (p.search(/[a-z]/i) < 0) {
+                passworderror.value = "Your password must contain at least one letter."
+                passworderror.style.color = "red";
+            }
+            if (p.search(/[0-9]/) < 0) {
+                passworderror.value = "Your password must contain at least one digit."
+                passworderror.style.color = "red";
+            }
+        }
+        const formValidation = () => {
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+            if (!name) {
+                let nameerror = document.getElementById('name');
+                nameerror.value = "Name is required"
+                nameerror.style.color = "red";
+            }
+            if (!email) {
+                let emailerror = document.getElementById('email');
+                emailerror.value = "Email is required"
+                emailerror.style.color = "red";
+            } else {
+                const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!pattern.test(email)) {
+                    let emailerror = document.getElementById('email');
+                    emailerror.value = "Email is not valid"
+                    emailerror.style.color = "red";
+                }
+            }
+            validatePassword(password);
+        }
+    </script>
+</body>
+
+</html>

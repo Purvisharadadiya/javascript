@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BankAccount Details</title>
+</head>
+
+<body>
+    <h1 align="center">***BankAccount Details***</h1>
+
+    <script>
+        class BankAccount {
+            constructor(number, balance, ACtype) {
+                this.number = number;
+                this.ACtype = ACtype;
+                this.balance = balance;
+
+            }
+            user() {
+                this.number = parseInt(prompt("Enter your account number"));
+                this.ACtype = prompt("Enter your account type (e.g., Savings, Current):");
+                this.balance = parseInt(prompt("Enter your account balance"));
+
+
+                document.write(`<h4 style="text-align:center;">A/C No :- ${this.number} <br>AC/type:-${this.ACtype}<br> Opening Balance :- ${this.balance} <br></h4> `);
+            }
+            deposit() {
+                let amount = parseInt(prompt("Enter the amount to deposit:"));
+                this.balance += amount;
+
+                document.write(`<h4 style="text-align:center;">Deposited :- ${amount} <br></h4>`);
+
+
+            }
+            withdraw() {
+                let amount = parseInt(prompt("Enter the amount to withdraw:"));
+                this.balance -= amount;
+
+                document.write(`<h4 style="text-align:center;">Withdrawn :- ${amount} <br></h4>`);
+                document.write(`<h4 style="text-align:center;">Account Balance :- ${this.balance} <br><h4>`);
+
+
+                let amt = parseInt(prompt("Enter the amount you want to withdraw:"));
+
+
+
+                document.write(`<h4 style="text-align:center;">Want to Withdrawn :- ${amt} <br></h4>`);
+                if (amt > this.balance) {
+                    document.write("Insufficient balance <br>");
+                } else {
+                    this.balance -= amt;
+
+                }
+
+            }
+            totalbalance() {
+                document.write(`<h4 style="text-align:center;">Account Balance :- ${this.balance}</h4>`);
+            }
+        }
+        let b = new BankAccount();
+        b.user();
+        b.deposit();
+        b.withdraw();
+        b.totalbalance();
+    </script>
+</body>
+
+</html>

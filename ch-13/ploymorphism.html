@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 align="center">ploymorphism</h1>
+    <hr>
+
+    <script>
+        class A {
+            show() {
+                let a = 10; let b = 20;
+
+                document.write(`sum is${a + b}`)
+            }
+        }
+
+        class B {
+            show() {
+                let c = 10; let d = 20;
+
+                document.write(`sub is${c - d}`)
+            }
+        }
+        class C {
+            show() {
+                let e = 10; let f = 20;
+
+                document.write(`mul is${e * f}`)
+            }
+        }
+
+
+        let sum = new A;
+        let sub = new B;
+        let mul = new C;
+
+        let data=[sum,sub,mul]
+
+        data.map((val)=>{
+            val.show();
+        })
+
+    </script>
+
+</body>
+
+</html>

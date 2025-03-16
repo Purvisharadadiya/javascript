@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank System</title>
+ 
+</head>
+<link rel="stylesheet" href="sytle.css">
+
+<body>
+    <h2>*** Bank System ***</h1>
+    <form>
+        <label for="acNo" style="color: #f9f9f9;">A/C No:</label>
+        <input type="text" placeholder="Account number" id="acNo">
+        <br><br>
+        <label for="acType" style="color: white;">A/C Type:</label>
+        <!-- <select id="acType"> -->
+            <input type="text" placeholder="Account number" id="acType">
+            <!-- <option value="">Select Account Type</option>
+            <option value="savings">Savings Account</option>
+            <option value="current">Current Account</option>
+            <option value="fixed">Fixed Deposit</option> -->
+        <!-- </select> -->
+        <br><br>
+        <label for="amt" style="color: #f9f9f9;">Amount:</label>
+        <input type="number" placeholder="Add Amount" id="amt">
+        <br><br>
+        <input type="button" onclick="Withdraw()" value="Withdraw">
+        <input type="button" onclick="Deposit()" value="Deposit">
+        <br><br>
+        <span id="error"></span>
+    </form>
+
+    <div id="detail">
+        <h2> *** Account Details ***</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>A/C No</th>
+                    <th>A/C Type</th>
+                    <th>Total Amount</th>
+                </tr>
+            </thead>
+            <tbody id="tableData"></tbody>
+        </table>
+    </div>
+
+    <script>
+        let amount = 1500;
+
+        class Account {
+            constructor(acNo, acType, amt) {
+                this.acNo = acNo;
+                this.acType = acType;
+                this.amt = amt;
+            }
+
+            updateTable(finalAmount) {
+                document.getElementById("tableData").innerHTML = `
+                    <tr>
+                        <td>${this.acNo}</td>    
+                        <td>${this.acType}</td>    
+                        <td>${finalAmount}</td>    
+                    </tr>
+                `;
+
+                document.getElementById("detail").style.display = "block";
+            }
+        }
+
+        const Deposit = () => {
+            let acNo = document.getElementById("acNo").value;
+            let acType = document.getElementById("acType").value;
+            let amt = parseInt(document.getElementById("amt").value);
+
+            if (!acNo || !acType || isNaN(amt)) {
+                document.getElementById("error").innerText = "Please fill all fields.";
+                return;
+            }
+
+            let newAccount = new Account(acNo, acType, amt);
+            amount += amt;
+            newAccount.updateTable(amount);
+        }
+
+        const Withdraw = () => {
+            let acNo = document.getElementById("acNo").value;
+            let acType = document.getElementById("acType").value;
+            let amt = parseInt(document.getElementById("amt").value);
+
+            if (!acNo || !acType || isNaN(amt)) {
+                document.getElementById("error").innerText = "Please fill all fields.";
+                return;
+            }
+
+            if (amt > amount) {
+                document.getElementById("error").innerText = "Insufficient balance.";
+                return;
+            }
+
+            let newAccount = new Account(acNo, acType, amt);
+            amount -= amt;
+            newAccount.updateTable(amount);
+        }
+    </script>
+</body>
+
+</html>
