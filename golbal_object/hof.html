@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div Id="root"></div>
+    <style>
+       * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color:black;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+        }
+
+        .navbar h1 {
+            margin: 0;
+        }
+
+        .menu-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Off-Canvas Menu */
+        #offCanvas {
+            width: 250px;
+            height: 100%;
+            background-color: red;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            transition: left 0.3s;
+            padding: 20px;
+            color: white;
+        }
+
+        #offCanvas h1 {
+            text-align: right;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        #offCanvas ul {
+            list-style: none;
+            padding: 20px 0;
+        }
+
+        #offCanvas ul li {
+            padding: 10px 0;
+        }
+
+        #offCanvas ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        /* Content Section */
+        .content {
+            padding: 20px;
+        }
+    </style>
+   
+
+<div id="offCanvas">
+    <h1>✖</h1>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</div>
+</body>
+<script>
+
+    let root = document.getElementById('root')
+    let box= document.createElement('div')
+    box.setAttribute("id","box1")
+    box.setAttribute("class","h2")
+    box.style.width="300px";
+    box.style.height="100%"; 
+    box.style.backgroundColor = "red";
+    box.style.position="absolute"
+    box.style.top= '0'
+    box.style.left= '0'
+    box.innerHTML="<h1>✖</h1>"
+   // box.innerHTML="<ul> <li>home</li></ul>"
+  
+    
+
+
+    let button = document.createElement('button');
+    button.innerHTML = "☰"
+    button.style.position="absolute"
+    button.style.top="0"
+    button.style.right="0"
+
+    //root.style.display="flex"
+    //root.style.justifyContent="flex-end"
+    
+    box.addEventListener('click',function(){
+        box.style.display="none"
+    })
+    button.addEventListener('click', function() {
+    box.style.display = (box.style.display === "none") ? "block" : "none";
+});
+
+
+
+     
+    root.appendChild(button)
+    root.appendChild(box)
+</script>
+
+</html>

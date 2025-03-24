@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+//     function divide(a, b) {
+//     if (b === 0) {
+//         throw new Error("Cannot divide by zero!"); // Custom error
+//     }
+//     return a / b;
+// }
+
+// try {
+//     console.log(divide(10, 0)); // Error
+// } catch (e) {
+//     console.log("Caught Error:",(e));
+// }
+
+
+    try{
+        let a=10, b=6;
+        if(b==0){
+            throw("can not divide by ziro!") 
+        }
+        else{
+
+            console.log(`divide:-${a/b}`)
+
+        } 
+
+    } catch(e){
+        console.log("error:-",e)
+    }
+
+// setTimeout(() => {
+//     try {
+//         throw new Error("This will be caught!");
+//     } catch (error) {
+//         console.log("Caught:", error);
+//     }
+// }, 1000);
+
+
+</script>
+</html>

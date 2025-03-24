@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<script>
+
+    let root = document.getElementById('root');
+    let p = document.createElement('p');
+    p.innerHTML = "purvisha"
+    p.style.color = "red"
+    p.style.fontSize="50px"
+    p.setAttribute("id","p1")
+    p.setAttribute("calss","p2")
+    root.appendChild(p)
+    
+    p.addEventListener('click',()=>{
+        p.innerHTML="purva"
+        p.style.color="blue"
+        p.style.height="100px"
+        p.style.width="100px"
+        p.style.backgroundColor="red"
+        p.style.marginRight="500px"
+        p.style.translate="500px"
+        p.style.transition="2s"
+    })
+
+    setTimeout(()=>{
+        p.style.translate="0px"
+        p.style.transition="2s"
+
+    },4000)
+
+</script>
+
+</html>

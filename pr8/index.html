@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link  rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="box">
+        <h1>COUNTER</h1>
+        <h2 align="center" id="count"></h2>
+        <div id="edit">
+            <button id="addbtn" onclick="add()">+</button>
+            <input type="text" id="counttext">
+            <button id="lessbtn" onclick="less()">-</button>
+        </div>
+        <button id="reset" onclick="reset()">Reset</button>
+    </div>
+    <script>
+      
+      let count = 0;
+        let countText = document.getElementById("counttext");
+        const add = () => {
+            count++;
+        }
+        const less = () => {
+            count--;
+        }
+        const reset = () => {
+            count = 0;
+        }
+        setInterval(() => {
+            countText.value = count;
+
+        }, 100)
+      
+      
+
+      
+
+
+
+
+    </script>
+</body>
+
+</html>

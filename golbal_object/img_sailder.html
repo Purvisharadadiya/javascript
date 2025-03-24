@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Slideshow</title>
+    <style>
+        #slideshow {
+            width: 400px;
+            height: 250px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+        img.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="slideshow">
+        <img src="img/colin-watts-O_vfjjh6t3k-unsplash.jpg" class="active">
+        <img src="img/ed56dcb806758db908121d76697d9655.jpg">
+        <img src="img/istockphoto-518553312-1024x1024.jpg">
+    </div>
+
+    <script>
+        let index = 0;
+        let images = document.querySelectorAll("#slideshow img");
+
+        function changeImage() {
+           images[index].classList.remove("active"); // Hide current image
+             index = (index + 1) % images.length; // Move to the next image (loop)
+             images[index].classList.add("active"); // Show new image
+            
+        }
+        setInterval(changeImage, 3000);
+
+        // Auto change every 3 seconds
+       // setInterval(changeImage, 3000);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+
+body{
+    background-color: black;
+}
+
+.box{
+    background-color: white;
+    width:500px;
+    height: 220px;
+    margin: 100px auto;
+    padding: 20px;
+
+}
+ .box h1,h2{
+    color:black;
+    text-align: center; 
+} 
+
+#edit{
+    display: flex;
+    justify-content: center;
+    padding: 5px 20px;
+   
+}
+#edit button{
+    margin: 0 10px 10px;
+    padding: 5px 30px;
+    cursor: pointer;
+   
+    font-size: 20px;
+}
+
+#reset{
+    display: block;
+    margin: 0 auto;
+    padding: 5px 20px;
+    cursor: pointer;
+    background-color:green;
+    font-size: 20px;
+    margin-top: 10px;
+}
+input {
+ padding: 15px 5px;
+  width: 100px;
+border: none;
+color: black;
+background-color: pink;
+border-radius: 10px;
+font-weight: 700;
+margin-right: 20px;
+text-align: center;
+
+}
+button {
+    padding: 15px 45px;
+    background-color: green;
+    border: none;
+    color:black;
+    border-radius: 10px;
+    font-weight: 700;
+    margin-right: 20px;
+    margin-top: 10px;
+
+}
