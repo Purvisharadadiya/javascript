@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple CRUD with Language</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 8px;
+            width: 90%;
+        }
+        .language-options label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 2px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Simple CRUD Form</h2>
+
+    <!-- Form to add data -->
+    Name: <input type="text" id="name"><br>
+    Email: <input type="text" id="email"><br>
+    Password: <input type="password" id="password"><br>
+
+    <!-- Language radio buttons -->
+    Language:<br>
+    <div class="language-options">
+        <label><input type="radio" name="language" value="HTML"> HTML</label>
+        <label><input type="radio" name="language" value="CSS"> CSS</label>
+        <label><input type="radio" name="language" value="JavaScript"> JavaScript</label>
+    </div>
+    <br>
+
+    <button onclick="addData()">Add</button>
+
+    <h3>Data List</h3>
+    <ul id="dataList"></ul>
+</div>
+
+<script>
+    function addData() {
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        var language = document.querySelector('input[name="language"]:checked');
+
+        if (!name || !email || !password || !language) {
+            alert('Please fill all fields and select a language!');
+            return;
+        }
+
+        // Create the list item
+        var listItem = `
+            <li>
+                <strong>${name}</strong> - ${email} - ${password} - ${language.value}
+                <button onclick="editData(this)">Edit</button>
+                <button onclick="deleteData(this)">Delete</button>
+            </li>`;
+
+        // Add to the data list
+        document.getElementById('dataList').innerHTML += listItem;
+
+        // Clear the form after adding
+        clearForm();
+    }
+
+    function editData(button) {
+        var listItem = button.parentElement;
+        var details = listItem.innerHTML.split(' - ');
+
+        // Populate the form with the selected data
+        document.getElementById('name').value = details[0].replace('<strong>', '').replace('</strong>', '');
+        document.getElementById('email').value = details[1];
+        document.getElementById('password').value = details[2];
+
+        // Select the language radio button
+        var language = details[3].split(' ')[0];
+        document.querySelector(input[name="language"][value="${language}"]).checked = true;
+
+        // Remove the item from the list after editing
+        listItem.remove();
+    }
+
+    function deleteData(button) {
+        var listItem = button.parentElement;
+        listItem.remove();
+    }
+
+    function clearForm() {
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('password').value = '';
+        document.querySelectorAll('input[name="language"]').forEach(radio => radio.checked = false);
+    }
+</script>
+
+</body>
+</html>

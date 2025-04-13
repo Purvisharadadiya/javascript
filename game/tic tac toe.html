@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tic tac toe</title>
+</head>
+<link rel="stylesheet" href="style.css">
+
+<body>
+    <h1> welcome to tic tac toe game </h1>
+    <div id="root"></div>
+</body>
+<script>
+
+    let game = document.getElementById('root');
+
+
+    let firstDiv = document.createElement('div');
+
+
+
+    let container = document.createElement('div');
+    container.id = 'container';
+
+
+    let secondDiv = document.createElement('div');
+    secondDiv.setAttribute("class","game")
+
+    container.appendChild(secondDiv);
+
+    for (let i = 0; i <= 8; i++) {
+        let button = document.createElement('button');
+        button.innerText="x"
+        button.innerHTML="0"
+        button.setAttribute("class", "box");
+
+        container.appendChild(button);
+    }
+
+
+    root.appendChild(container);
+</script>
+
+
+
+
+</script>
+
+</html>

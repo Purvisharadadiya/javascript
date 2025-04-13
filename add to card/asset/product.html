@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/all.min.css" rel="stylesheet">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <style>
+        /* Custom styles */
+        header {
+            background-color: #5b32a8; /* Header background */
+        }
+
+        body{
+            background-image: url(./img/img5.jpg);
+        }
+
+        .navbar-brand, .navbar-nav .btn {
+            color: white !important;
+        }
+
+        .navbar .btn-danger, .navbar .btn-primary {
+            color: #fff !important;
+        }
+
+        .card {
+            background-color: #f8f9fa; 
+            border: 1px solid #ddd;
+        }
+        .btn-add {
+        background-color:  #5b32a8  !important;
+        color: #e4dfd9 !important;
+        border: none;
+    }
+
+    .btn-add:hover {
+        background-color: #5b32a8 !important;
+        color: white !important;
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark mb-5">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="./img/logo-removebg-preview.png" width="100px">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <a onclick="logoutUser()" class="btn btn-add me-2 position-relative">Logout</a>
+                        <a href="cart.html" class="btn btn-add position-relative">
+                            Carts
+                            <span id="carts" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span>
+                        </a>
+                    </ul>
+                    
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="row md-4" id="product"></div>
+    </div>
+
+    <script src="product.js"></script>
+    <script src="watchman.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const product = () => {
+            let tbl = "";
+            arr.map((val) => {
+                tbl += `
+                    <div class="col-md-4 mb-3 d-flex justify-content-center">
+                        <div class="card">
+                            <img src="${val.image}" class="card-img-top" style="height: 250px; object-fit: cover;" alt="Product Image">
+                            <div class="card-body" style="width: 20rem;">
+                                <h5 class="card-title">${val.name}</h5>
+                                <p class="card-text" style="letter-spacing: 3px;">$ ${val.price}</p>
+                                <button onclick="addcard(${val.id})" class="btn btn-add rounded-pill">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            document.getElementById('product').innerHTML = tbl;
+        };
+        product();
+
+        let Allcart = JSON.parse(localStorage.getItem("hy")) || [];
+
+        const addcard = (id) => {
+            document.getElementById("carts").innerHTML = Allcart.length;
+            let dup = Allcart.find(val => val.id === id);
+            if (dup) {
+                alert("Already exists in the cart!");
+                return;
+            }
+
+            arr.map((val) => {
+                if (val.id === id) {
+                    Allcart.push(val);
+                    alert("Product added to cart");
+                    localStorage.setItem("hy", JSON.stringify(Allcart));
+                    product();
+                }
+            });
+        };
+
+        const logoutUser = () => {
+            localStorage.removeItem('user');
+            alert("Logout successfully");
+            window.location.href = "index.html";
+        };
+    </script>
+</body>
+</html>

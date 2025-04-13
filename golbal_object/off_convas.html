@@ -1,82 +1,116 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Off-Canvas Menu</title>
+    <title>Offcanvas</title>
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            font-size: 24px;
-        }
-        .content {
-            padding: 20px;
-        }
-        #offCanvas {
-            width: 250px;
-            height: 100%;
-            background-color: red;
-            position: fixed;
-            top: 0;
-            left: -250px;
-            transition: left 0.3s;
-            padding: 20px;
-            color: white;
-        }
-        #offCanvas h1 {
+        h2 {
             text-align: right;
-            margin: 0;
-            cursor: pointer;
         }
-        .toggle-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            padding: 10px 15px;
-            background: black;
-            color: white;
-            border: none;
-            cursor: pointer;
+
+        h4 {
+            text-align: right;
+
         }
     </style>
 </head>
+
 <body>
+    <div id="root">
 
-    <header>
-        My Website
-        <button class="toggle-btn">☰ Menu</button>
-    </header>
-
-    <div id="offCanvas">
-        <h1>✖</h1>
-        <p>Off-canvas menu content here...</p>
     </div>
-
-    <div class="content">
-        <h2>Welcome to My Website</h2>
-        <p>This is the main content area.</p>
-    </div>
-
-    <script>
-        let menu = document.getElementById('offCanvas');
-        let toggleBtn = document.querySelector('.toggle-btn');
-        let closeBtn = menu.querySelector('h1');
-
-        toggleBtn.addEventListener('click', function() {
-            menu.style.left = (menu.style.left === "0px") ? "-250px" : "0px";
-        });
-
-        closeBtn.addEventListener('click', function() {
-            menu.style.left = "-250px";
-        });
-    </script>
 
 </body>
+
+<script type="text/javascript">
+
+    let root = document.getElementById('root');
+
+
+
+    let box = document.createElement('div');
+    box.setAttribute('id', 'box')
+    box.setAttribute('class', 'box');
+    box.style.position = 'absolute';
+    box.style.top = '0%';
+    box.style.left = '0%';
+    box.style.width = '100%';
+    box.style.height = "100%"
+    box.style.width = "300px"
+    box.style.backgroundColor = "pink"
+    box.style.display = "none";
+    box.innerHTML = "<h2>✖</h2>";
+
+    box.addEventListener('click', function () {
+        box.style.display = "none";
+        nav.style.display = "none";
+
+
+    })
+
+
+    let nav = document.createElement('nav');
+    let ul = document.createElement('ul');
+    let li = document.createElement('li');
+    let a = document.createElement('a');
+    nav.setAttribute('id', 'nav');
+    ul.style.listStyle = "none"
+    nav.style.position = "absolute";
+    nav.style.display = "none";
+    a.style.color = "black";
+    a.style.textDecoration = "none";
+    a.href = "#";
+    let menu = ["home", "About", "service", "Contact"];
+    menu.forEach((val) => {
+        li = document.createElement('li');
+        a = document.createElement('a');
+        a.href = "#"
+        a.innerHTML = val;
+        a.style.color = "black";
+        a.style.textDecoration = "none"
+        li.appendChild(a);
+        ul.appendChild(li);
+
+    })
+
+
+
+
+
+    let button = document.createElement('button');
+    button.innerHTML = "☰";
+    button.style.padding = "10px"
+    button.style.position = "absolute";
+    button.style.top = "0%";
+    button.style.right = "0px";
+
+
+
+
+    button.addEventListener('click', () => {
+        if (box.style.display == "none" && nav.style.display == "none") {
+            box.style.display = "block";
+            nav.style.display = "block";
+        } else {
+            box.style.display = "none"
+            nav.style.display = "none"
+        }
+
+    })
+
+    root.appendChild(button);
+    root.appendChild(box);
+    root.appendChild(nav);
+    nav.appendChild(ul)
+    ul.appendChild(li)
+    li.appendChild(a)
+
+
+</script>
+
 </html>
+
+    

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess</title>
+</head>
+<body>
+    <h1 align="center">Chess Board</h1>
+    <table id="Table" align="center" border="2"></table>
+</body>
+<script type="text/javascript">
+
+    let Table = document.getElementById(`Table`);
+
+
+    let pieces = [
+        ["&#9814;", "&#9816;", "&#9815;", "&#9813;", "&#9812;", "&#9815;", "&#9816;", "&#9814;"], 
+        ["&#9817;", "&#9817;", "&#9817;", "&#9817;", "&#9817;", "&#9817;", "&#9817;", "&#9817;"], 
+        ["", "", "", "", "", "", "", ""], 
+        ["", "", "", "", "", "", "", ""], 
+        ["", "", "", "", "", "", "", ""], 
+        ["", "", "", "", "", "", "", ""], 
+        ["&#9823;", "&#9823;", "&#9823;", "&#9823;", "&#9823;", "&#9823;", "&#9823;", "&#9823;"], 
+        ["&#9820;", "&#9822;", "&#9821;", "&#9819;", "&#9818;", "&#9821;", "&#9822;", "&#9820;"]  
+    ];
+
+    for (let i = 0; i < 8; i++) {
+        let tr = document.createElement(`tr`);
+        for (let j = 0; j < 8; j++) {
+            let td = document.createElement(`td`);
+            td.style.height = "70px";
+            td.style.width = "70px";
+            td.style.textAlign = "center";
+            td.style.fontSize = "50px";
+            td.style.background = (i + j) % 2 == 0 ? "#A0522D" : "#FFFACD";
+            td.innerHTML = pieces[i][j]; 
+            tr.appendChild(td);
+        }
+        Table.appendChild(tr);
+    }
+
+</script>
+</html>

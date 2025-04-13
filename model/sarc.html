@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link href="asset/css/bootstrap.min.css" rel="stylesheet">
+<body>
+    <div class="container">
+        <h2 class="mb-4 mt-5 text-center">Employee Management System Portal</h2>
+        <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#dataModal">Add Data</button>
+    
+        <!-- Search bar -->
+        <div class="mb-3">
+          <input type="text" id="searchInput" onkeyup="filterData()" placeholder="Search by name, email, city..." class="form-control" />
+        </div>
+    
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>City</th>
+              <th>Salary</th>
+              <th>Designation</th>
+              <th>Date Joined</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="dataTable"></tbody>
+        </table>
+      </div>
+    
+      <!-- Modal -->
+      <div class="modal fade" id="dataModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <form id="dataForm" class="modal-content bg-white">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalTitle">Add User</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body row">
+              <input type="hidden" id="editid" />
+              <div class="mb-3 col-md-6">
+                <label>Name</label>
+                <input type="text" id="name" class="form-control" required />
+              </div>
+    
+              <div class="mb-3 col-md-6">
+                <label>Email</label>
+                <input type="email" id="email" class="form-control" required />
+              </div>
+    
+              <div class="mb-3 col-md-6">
+                <label>City</label>
+                <input type="text" id="city" class="form-control" required />
+              </div>
+    
+              <div class="mb-3 col-md-6">
+                <label>Salary</label>
+                <input type="number" id="salary" class="form-control" required />
+              </div>
+    
+              <div class="mb-3 col-md-6">
+                <label>Designation</label>
+                <input type="text" id="designation" class="form-control" required />
+              </div>
+    
+              <div class="mb-3 col-md-6">
+                <label>Date Joined</label>
+                <input type="date" id="datejoin" class="form-control" required />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <input id="add" onclick="addRecord()" type="button" value="Submit" class="btn btn-success" />
+              <input id="edit" onclick="updateData()" type="button" value="Update" class="btn btn-warning" style="display: none;" />
+            </div>
+          </form>
+        </div>
+      </div>
+</body>
+
+
+
+<script>
+    const allrecord = () => {
+      return JSON.parse(localStorage.getItem("user")) || [];
+    };
+
+    const viewUser = (data = allrecord()) => {
+      let tbl = "";
+      data.forEach((val) => {
+        tbl += `
+            <tr>
+                <td>${val.id}</td>
+                <td>${val.name}</td>
+                <td>${val.email}</td>
+                <td>${val.city}</td>
+                <td>${val.salary}</td>
+                <td>${val.designation}</td>
+                <td>${val.datejoin}</td>
+                <td>
+                    <button onclick="editUser(${val.id})" class="btn btn-sm btn-warning">Edit</button> ||
+                    <button onclick="deletUser(${val.id})" class="btn btn-sm btn-danger">Delete</button>
+                </td>
+            </tr>
+        `;
+      });
+      document.getElementById("dataTable").innerHTML = tbl;
+    };
+
+    const addRecord = () => {
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let city = document.getElementById("city").value;
+      let salary = document.getElementById("salary").value;
+      let designation = document.getElementById("designation").value;
+      let datejoin = document.getElementById("datejoin").value;
+
+      let row = {
+        id: Math.floor(Math.random() * 100000),
+        name,
+        email,
+        city,
+        salary,
+        designation,
+        datejoin,
+      };
+
+      let newdata = [...allrecord(), row];
+      localStorage.setItem("user", JSON.stringify(newdata));
+      alert("Record added successfully!");
+
+      document.getElementById("dataForm").reset();
+      viewUser();
+    };
+
+    const deletUser = (deletid) => {
+      let del = allrecord().filter((val) => val.id != deletid);
+      localStorage.setItem("user", JSON.stringify(del));
+      alert("Record successfully deleted");
+      viewUser();
+    };
+
+    const editUser = (id) => {
+      document.getElementById("add").style.display = "none";
+      document.getElementById("edit").style.display = "inline-block";
+
+      let single = allrecord().find((val) => val.id == id);
+
+      document.getElementById("name").value = single.name;
+      document.getElementById("email").value = single.email;
+      document.getElementById("city").value = single.city;
+      document.getElementById("salary").value = single.salary;
+      document.getElementById("designation").value = single.designation;
+      document.getElementById("datejoin").value = single.datejoin;
+      document.getElementById("editid").value = id;
+
+      new bootstrap.Modal(document.getElementById("dataModal")).show();
+    };
+
+    const updateData = () => {
+      let editid = document.getElementById("editid").value;
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let city = document.getElementById("city").value;
+      let salary = document.getElementById("salary").value;
+      let designation = document.getElementById("designation").value;
+      let datejoin = document.getElementById("datejoin").value;
+
+      let up = allrecord().map((val) => {
+        if (val.id == editid) {
+          return {
+            ...val,
+            name,
+            email,
+            city,
+            salary,
+            designation,
+            datejoin,
+          };
+        }
+        return val;
+      });
+
+      localStorage.setItem("user", JSON.stringify(up));
+      alert("Record updated successfully");
+
+      document.getElementById("dataForm").reset();
+      document.getElementById("add").style.display = "inline-block";
+      document.getElementById("edit").style.display = "none";
+
+      viewUser();
+    };
+
+    const filterData = () => {
+      const query = document.getElementById("searchInput").value.toLowerCase();
+      const filtered = allrecord().filter((val) =>
+        val.name.toLowerCase().includes(query) ||
+        val.email.toLowerCase().includes(query) ||
+        val.city.toLowerCase().includes(query) ||
+        val.designation.toLowerCase().includes(query)
+      );
+      viewUser(filtered);
+    };
+
+    // Initialize data view
+    viewUser();
+  </script>
+
+  <script src="asset/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+</html>

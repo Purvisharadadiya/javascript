@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <h1 align="center">***cour form***</h1>
+    <form align="center">
+        <input type="hidden" id="editid">
+    
+        <label>Name:</label>
+        <input type="text" id="name"><br>
+        <br>
+    
+        <label>Phone:</label>
+        <input type="text" id="phone">
+        <br><br>
+    
+        <label>Gender:</label>
+        <select id="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+        <br><br>
+        <label>Role:</label>
+        <input type="radio" name="role" value="Admin">Admin
+        <input type="radio" name="role" value="User">User
+        <br><br>
+        <label>Hobbies:</label>
+        <input type="checkbox" name="hobbies" value="Reading">Reading
+        <input type="checkbox" name="hobbies" value="Gaming">Gaming
+        <input type="checkbox" name="hobbies" value="Traveling">Traveling<br>
+    
+        <br><br>
+    
+        <div id="add">
+            <button type="button" onclick="saveData()">Add</button>
+        </div>
+        <br><br>
+        <div id="edit" style="display:none;">
+            <button type="button" onclick="updateData()">Update</button>
+        </div>
+    </form>
+    
+    <table border="1" align="center">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Gender</th>
+                <th>Role</th>
+                <th>Hobbies</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody id="record"></tbody>
+    </table>
+</body>
+</html>
