@@ -19,6 +19,4 @@ const registerUser = () => {
     alert("User Register successfully");
      window.location.href = "index.html"
 
-
-
 }

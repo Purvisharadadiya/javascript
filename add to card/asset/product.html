@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,35 +12,42 @@
     <style>
         /* Custom styles */
         header {
-            background-color: #5b32a8; /* Header background */
+            background-color: #5b32a86c;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
         }
 
-        body{
-            background-image: url(./img/img5.jpg);
+
+        body {
+            background-image: url(./img/img11.jpg);
+            background-size: cover
         }
 
-        .navbar-brand, .navbar-nav .btn {
-            color: white !important;
+        .navbar-nav .btn {
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        .navbar .btn-danger, .navbar .btn-primary {
-            color: #fff !important;
+        .navbar-nav .btn:hover {
+            background-color: #4a2895;
+            color: #ffffff;
         }
+
 
         .card {
-            background-color: #f8f9fa; 
+            background-color: #f8f9fa;
             border: 1px solid #ddd;
         }
-        .btn-add {
-        background-color:  #5b32a8  !important;
-        color: #e4dfd9 !important;
-        border: none;
-    }
 
-    .btn-add:hover {
-        background-color: #5b32a8 !important;
-        color: white !important;
-    }
+        .btn-add {
+            background-color: #5b32a8;
+            color: #e4dfd9;
+            border: none;
+        }
+
+        .btn-add:hover {
+            background-color: #5b32a8;
+            color: white;
+        }
+        
     </style>
 </head>
 
@@ -50,18 +58,20 @@
                 <a class="navbar-brand" href="#">
                     <img src="./img/logo-removebg-preview.png" width="100px">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <a onclick="logoutUser()" class="btn btn-add me-2 position-relative">Logout</a>
                         <a href="cart.html" class="btn btn-add position-relative">
-                            Carts
-                            <span id="carts" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span>
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span id="carts"
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span>
                         </a>
                     </ul>
-                    
+
                 </div>
             </div>
         </nav>
@@ -77,6 +87,8 @@
 
     <script>
         const product = () => {
+        let Allcarts = JSON.parse(localStorage.getItem('hy')) || [];
+        document.getElementById('carts').innerHTML = Allcarts.length;
             let tbl = "";
             arr.map((val) => {
                 tbl += `
@@ -98,9 +110,8 @@
         product();
 
         let Allcart = JSON.parse(localStorage.getItem("hy")) || [];
-
         const addcard = (id) => {
-            document.getElementById("carts").innerHTML = Allcart.length;
+          
             let dup = Allcart.find(val => val.id === id);
             if (dup) {
                 alert("Already exists in the cart!");
@@ -124,4 +135,5 @@
         };
     </script>
 </body>
+
 </html>
