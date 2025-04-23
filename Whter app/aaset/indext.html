@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Night Weather UI</title>
+    <link href="./css/bootstrap.min.css">
+
+    <style>
+        body {
+        background-image: url('https://i.pinimg.com/736x/78/7b/f8/787bf8f50ff474b502fb26699c9cb44d.jpg');
+        background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', sans-serif;
+            color: #fff;
+        }
+
+        .weather-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .weather-box h2 {
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #e0e0e0;
+        }
+
+        .form-control,
+        .btn {
+            border-radius: 25px;
+        }
+
+        .btn-light {
+            background-color: #ffffff22;
+            color: #fff;
+            border: none;
+            width: 100px;
+            padding: 10px;
+        }
+
+        .btn-light:hover {
+            background-color: #ffffff44;
+        }
+
+        .weather-icon {
+            width: 100px;
+            margin: 20px 0;
+        }
+
+        .temp {
+            font-size: 48px;
+            font-weight: bold;
+            color: #f8f9fa;
+        }
+
+        .description {
+            font-size: 20px;
+            opacity: 0.85;
+        }
+
+        .moon-bg {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            width: 120px;
+            opacity: 0.15;
+        }
+        .placeholder{
+            width: 200px;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    
+    
+
+    <div class="weather-box">
+        <h2>🌙 Night Weather & day weather🌤️</h2>
+        <div class="input-group mb-4">
+            <input id="cityname" type="text" class="placeholder" class="form-control form-control-lg" placeholder="Enter city" />
+            <button class="btn btn-light btn-lg ms-2 " type="button" onclick="add()">Search</button>
+            <div  id="weather">
+
+            </div>
+    
+       
+</body>
+<script>
+    const add = () => {
+        let cityname = document.getElementById('cityname').value;
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${`14951c93f3d11e8ac8bed96dd90e8bc7`}&units=metric`, {
+            method: 'GET',
+        })
+            .then(res => res.json())
+            .then((data) => {
+
+                const iconCode = data.weather[0].icon;
+                const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+
+          let tbl = " ";
+          tbl += `
+           <img src="${iconUrl}" alt="Weather Icon">
+          <h3>${data.name}</h3>
+          <p>Temperature: ${data.main.temp}°C</p>
+          <p>Weather: ${data.weather[0].description}</p>
+
+          `
+          document.getElementById('weather').innerHTML = tbl;
+
+        //  console.log(data);
+            });
+    };
+</script>
+
+
+</body>
+
+</html>
+
+<script src="./js/bootstrap.bundle.min.js"></script>
+
+</html>

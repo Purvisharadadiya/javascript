@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do List</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #f7f9fc;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .todo-container {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #fff;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+    }
+
+    .todo-item {
+      padding: 10px;
+      border-radius: 8px;
+      background: #f1f3f5;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .todo-item.done span {
+      text-decoration: line-through;
+      color: #6c757d;
+    }
+
+    .btn-check {
+      background-color: #198754;
+      border: none;
+    }
+
+    .btn-check:hover {
+      background-color: #157347;
+    }
+    .placeholder{
+      border-radius: 20px;
+      background-color: #f1f3f5;
+      border: black;
+      
+    }
+    
+  </style>
+</head>
+
+<body>
+
+  <div class="todo-container">
+    <h3 class="text-center mb-4">📝 To-Do List</h3>
+    <div class="input-group mb-3">
+      <input type="text" id="taskadd" class="form-control placeholder" placeholder="Enter your task here...">
+      <input type="hidden" id="editid">
+      <button id="add" class="btn btn-primary" onclick="addTodo()">Add</button>
+      <button id="edit" class="btn btn-primary" onclick="updateData()" style="display: none;">Update</button>
+      <button  class="btn btn-primary"onclick="searchuser()">Search</button>
+
+
+    </div>
+    <ul id="todoList" class="list-unstyled">
+
+    </ul>
+
+  </div>
+
+  <script src="todo.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

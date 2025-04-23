@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 align="center">fetch</h1>
+    <form>
+
+        <table border="1" align="center" cellpadding="10" cellspacing="2">
+            <tr>
+                <td>Emali</td>
+                <td><input type="email" id="emali"></td>
+            </tr>
+            <tr>
+                <td>password</td>
+                <td><input type="text" id="password"></td>
+            </tr>
+
+            <tr>
+                <td>Add :-</td>
+                <td>
+                    <input id="add" onclick="saveData()" type="button" value="submit">
+                </td>
+            </tr>
+        </table>
+
+    </form>
+
+
+    <script>
+
+        const saveData = () => {
+            let emali = document.getElementById('emali').value
+            let password = document.getElementById('password').value
+
+            fetch(`https://dummyjson.com/auth/login`, {
+                method: 'POST',
+
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username: emali,
+                    password: password
+                })
+
+
+            })
+            .then(res=>res.json())
+            .then((data)=>{
+                let token={
+                    accesstoken:data.accessToken
+                }
+                localStorage.setItem('token',JSON.stringify(token))
+            })
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>
