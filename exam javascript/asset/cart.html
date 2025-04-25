@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart Page</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-image: url(./img/img5.jpg);
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1200px;
+    }
+
+    .product-img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .qty-input {
+      width: 70px;
+    }
+
+    .cart-summary {
+      margin-top: 30px;
+    }
+
+    .table thead {
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .table th, .table td {
+      vertical-align: middle;
+      padding: 15px;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .cart-summary .d-flex {
+      margin-bottom: 10px;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
+
+    .form-select, .form-control {
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 1px solid #ddd;
+    }
+
+    .form-control {
+      color: #333;
+    }
+
+    .form-select:focus, .form-control:focus {
+      box-shadow: none;
+    }
+
+    .product-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .product-row img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container mt-5">
+    <!-- Filters Section -->
+    <div class="row mb-3">
+      <div class="col-md-4 mt-3">
+        <input type="text" id="search" class="form-control" placeholder="Search by Title">
+      </div>
+      <div class="col-md-4 mt-3">
+        <select id="filterCategory" class="form-select">
+          <option value="">All Categories</option>
+        </select>
+      </div>
+      <div class="col-md-4 mt-3">
+        <select id="sortPrice" class="form-select">
+          <option value="">Sort by Price</option>
+          <option value="low">Low to High</option>
+          <option value="high">High to Low</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Cart Table -->
+    <table class="table table-striped align-middle text-center">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="data">
+        <!-- Dynamic content goes here -->
+      </tbody>
+    </table>
+
+    <!-- Full-Width Cart Summary -->
+    <div class="card p-4 mt-5">
+      <h4>Order Summary</h4>
+      <hr>
+      <div class="d-flex justify-content-between mb-2">
+        <span>Subtotal</span>
+        <span id="subtotal">Rs. 0</span>
+      </div>
+      <div class="d-flex justify-content-between mb-2">
+        <span>Shipping</span>
+        <span>free</span>
+      </div>
+      <hr>
+      <div class="d-flex justify-content-between mb-3">
+        <strong id="total">Total</strong>
+        <strong id="totalAmount">Rs. 0</strong>
+      </div>
+      <button class="btn btn-primary w-100">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <script src="cart.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

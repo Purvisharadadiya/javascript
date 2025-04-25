@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,7 +44,6 @@
             background-color: #5b32a8;
             color: white;
         }
-        
     </style>
 </head>
 
@@ -77,77 +73,51 @@
         </nav>
     </header>
 
-    <div class="container">
-        <div class="row md-4" id="product"></div>
-    </div>
+    <!-- details section start -->
 
-    <script src="product.js"></script>
+    <section>
+        <div class="container">
+            <div class="row">
+                <p id="detailsdata"></p>
+                <p id="detailname"></p>
+                <p id="detailprice"></p>
+                <img src="" alt="" id="detailimg">
+            </div>
+        </div>
+    </section>
+    <!-- details section end -->
+
+
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="watchman.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="product.js"></script>
+
 
     <script>
-        const product = () => {
-        let Allcarts = JSON.parse(localStorage.getItem('hy')) || [];
-        document.getElementById('carts').innerHTML = Allcarts.length;
-            let tbl = "";
-            arr.map((val) => {
-                tbl += `
-                    <div class="col-md-4 mb-3 d-flex justify-content-center">
-                        <div class="card">
-                            <img src="${val.image}" class="card-img-top" style="height: 250px; object-fit: cover;" alt="Product Image">
-                            <div class="card-body" style="width: 20rem;">
-                                <h5 class="card-title">${val.name}</h5>
-                                <p class="card-text" style="letter-spacing: 3px;">$ ${val.price}</p>
-                                <button onclick="addcard(${val.id})" class="btn btn-add rounded-pill">Add to Cart</button>
-                                <button onclick="productdetail(${val.id})" class="btn btn-add rounded-pill">View Details</button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
 
-            document.getElementById('product').innerHTML = tbl;
-        };
-        product();
 
-        let Allcart = JSON.parse(localStorage.getItem("hy")) || [];
-        const addcard = (id) => {
-          
-            let dup = Allcart.find(val => val.id === id);
-            if (dup) {
-                alert("Already exists in the cart!");
+
+        const getdetails = () => {
+            let details = JSON.parse(localStorage.getItem('details'));
+            if (!details) {
+                alert('No details found!');
                 return;
             }
-
-            arr.map((val) => {
-                if (val.id === id) {
-                    Allcart.push(val);
-                    alert("Product added to cart");
-                    localStorage.setItem("hy", JSON.stringify(Allcart));
-                    product();
-                }
-            });
-        };
-        const productdetail = (id) => {
-            let details = JSON.parse(localStorage.getItem('details'));
-            let data = arr.find((val) => {
-                if (val.id == id) {
-                    return val;
-
-                }
-            })
-            localStorage.setItem('details', JSON.stringify(data));
-            window.location.href = "productdetail.html";
-
-
+            document.getElementById('detailsdata').innerHTML = details.id;
+            document.getElementById('detailname').innerHTML = details.name;
+            document.getElementById('detailprice').innerHTML = details.price;
+            let image = document.getElementById('detailimg');
+            image.src = details. image;
+            image.style.width = "100px";
         }
+
 
         const logoutUser = () => {
             localStorage.removeItem('user');
             alert("Logout successfully");
             window.location.href = "index.html";
         };
+
     </script>
 </body>
-
-</html>

@@ -5,21 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Page</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/all.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <style>
-        /* Custom styles */
+       
         header {
             background-color: #5b32a86c;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1)
-        }
-
-
-        body {
-            background-image: url(./img/img11.jpg);
-            background-size: cover
         }
 
         .navbar-nav .btn {
@@ -55,16 +49,13 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark mb-5">
             <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="./img/logo-removebg-preview.png" width="100px">
-                </a>
+                <a class="navbar-brand" href="#" style="color: #4a2895;">Add to card</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <a onclick="logoutUser()" class="btn btn-add me-2 position-relative">Logout</a>
                         <a href="cart.html" class="btn btn-add position-relative">
                             <i class="fa-solid fa-cart-shopping"></i>
                             <span id="carts"
@@ -82,12 +73,12 @@
     </div>
 
     <script src="product.js"></script>
-    <script src="watchman.js"></script>
+    
     <script src="js/bootstrap.bundle.min.js"></script>
 
     <script>
         const product = () => {
-        let Allcarts = JSON.parse(localStorage.getItem('hy')) || [];
+        let Allcarts = JSON.parse(localStorage.getItem('user')) || [];
         document.getElementById('carts').innerHTML = Allcarts.length;
             let tbl = "";
             arr.map((val) => {
@@ -99,7 +90,7 @@
                                 <h5 class="card-title">${val.name}</h5>
                                 <p class="card-text" style="letter-spacing: 3px;">$ ${val.price}</p>
                                 <button onclick="addcard(${val.id})" class="btn btn-add rounded-pill">Add to Cart</button>
-                                <button onclick="productdetail(${val.id})" class="btn btn-add rounded-pill">View Details</button>
+                               
                             </div>
                         </div>
                     </div>
@@ -110,7 +101,7 @@
         };
         product();
 
-        let Allcart = JSON.parse(localStorage.getItem("hy")) || [];
+        let Allcart = JSON.parse(localStorage.getItem("user")) || [];
         const addcard = (id) => {
           
             let dup = Allcart.find(val => val.id === id);
@@ -123,30 +114,14 @@
                 if (val.id === id) {
                     Allcart.push(val);
                     alert("Product added to cart");
-                    localStorage.setItem("hy", JSON.stringify(Allcart));
+                    localStorage.setItem("user", JSON.stringify(Allcart));
                     product();
                 }
             });
         };
-        const productdetail = (id) => {
-            let details = JSON.parse(localStorage.getItem('details'));
-            let data = arr.find((val) => {
-                if (val.id == id) {
-                    return val;
+       
 
-                }
-            })
-            localStorage.setItem('details', JSON.stringify(data));
-            window.location.href = "productdetail.html";
-
-
-        }
-
-        const logoutUser = () => {
-            localStorage.removeItem('user');
-            alert("Logout successfully");
-            window.location.href = "index.html";
-        };
+        
     </script>
 </body>
 
